@@ -1,6 +1,7 @@
 from Order import Order
 
 class Orderdetails(Order):
+
     def __init__(self,customer_ID,name,surname,mail,phonenumber,order_ID,city,country,zipcode,
                  product_name,quantity,price,weight):
 
@@ -41,7 +42,3 @@ class Orderdetails(Order):
     @weight.setter
     def weight(self, value):
         self._weight = value
-
-
-
-
