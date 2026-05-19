@@ -1,9 +1,9 @@
 [
     {
-        "Customer_ID": "1001",
+        "Customer_ID": "101",
         "Name": "Pavlos",
         "Surname": "Eikospentakis",
-        "Mail": "eikpospentakispaul@gmail.com",
+        "Mail": "eikospentakispaul@gmail.com",
         "Phone number": "6937100254"
     }
 ]

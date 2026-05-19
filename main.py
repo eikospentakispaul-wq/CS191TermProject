@@ -219,9 +219,9 @@ for i in range(Decision):
                 "Address : "
             ).strip()
 
-            if not address.isdigit():
+            if not address.isalpha():
                 raise ValueError(
-                    "Address must contain only numbers."
+                    "Address must contain only letters."
                 )
 
             product_name = input(
