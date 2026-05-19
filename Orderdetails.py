@@ -15,7 +15,7 @@ class Orderdetails(Order):
                  product_name,
                  quantity,
                  price,
-                 status):
+                 weight):
         super().__init__(
             customer_ID,
             name,
@@ -31,5 +31,31 @@ class Orderdetails(Order):
         self._product_name = product_name
         self._quantity = quantity
         self._price = price
-        self._status = status
+        self._weight = weight
+
+    @property
+    def product_name(self):
+        return self._product_name
+
+    @product_name.setter
+    def product_name(self, value):
+        self._product_name = value
+
+    @property
+    def quantity(self):
+        return self._quantity
+
+    @quantity.setter
+    def quantity(self, value):
+        self._quantity = value
+
+    @property
+    def price(self):
+        return self._price
+
+    @price.setter
+    def price(self, value):
+            self._price = value
+
+
 
