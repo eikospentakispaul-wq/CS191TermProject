@@ -1,0 +1,145 @@
+from Customer import Customer
+from Order import Order
+import json
+import os
+
+
+
+Customer_list = []
+
+if os.path.exists("Customer_data.json"):
+    with open("Customer_data.json", "r") as file:
+        try:
+            existing_data = json.load(file)
+
+            for item in existing_data:
+                Customer_list.append(
+                    Customer(
+                        item["Customer_ID"],
+                        item["Name"],
+                        item["Surname"],
+                        item["Mail"],
+                        item["Phone number"]
+                    )
+                )
+        except json.JSONDecodeError:
+            pass
+
+
+
+Order_list = []
+
+if os.path.exists("Order_data.json"):
+    with open("Order_data.json", "r") as file:
+        try:
+            existing_data = json.load(file)
+
+            for item in existing_data:
+                Order_list.append(
+                    Order(
+                        item["Customer_ID"],
+                        "", "", "", "",
+                        item["Order_ID"],
+                        item["City"],
+                        item["Country"],
+                        item["Zipcode"]
+                    )
+                )
+        except json.JSONDecodeError:
+            pass
+
+
+print("------COURIER DATABASE------\n")
+
+Decision = int(input("How many customers would you like to save data for? : "))
+
+
+for i in range(Decision):
+
+    while True:
+        try:
+            customer_ID = input("Enter customer ID : ").strip()
+            if not customer_ID.isdigit():
+                raise ValueError("Customer ID must contain only numbers.")
+
+            name = input("Name : ").strip()
+            if not name.isalpha():
+                raise ValueError("Name must contain only letters.")
+
+            surname = input("Surname : ").strip()
+            if not surname.isalpha():
+                raise ValueError("Surname must contain only letters.")
+
+            mail = input("Mail : ").strip()
+            if "@" not in mail or "." not in mail:
+                raise ValueError("Invalid email format.")
+
+            phonenumber = input("Phone number : ").strip()
+            if not phonenumber.isdigit():
+                raise ValueError("Phone number must contain only digits.")
+
+            c = Customer(customer_ID, name, surname, mail, phonenumber)
+
+            Customer_list.append(c)
+
+
+            customer_data = [x.to_dict() for x in Customer_list]
+
+            with open("Customer_data.json", "w") as file:
+                json.dump(customer_data, file, indent=4)
+
+            print("Customer added successfully.\n")
+            break
+
+        except ValueError as e:
+            print(f"Error: {e}\n")
+
+
+print()
+
+
+
+for i in range(Decision):
+
+    while True:
+        try:
+
+
+            order_ID = input("Order ID : ").strip()
+            if not order_ID.isdigit():
+                raise ValueError("Order ID must contain only numbers.")
+
+            country = input("Country : ").strip()
+            if not country.isalpha():
+                raise ValueError("Country must contain only letters.")
+
+            city = input("City : ").strip()
+            if not city.isalpha():
+                raise ValueError("City must contain only letters.")
+
+            zipcode = input("Zip code : ").strip()
+            if not zipcode.isdigit():
+                raise ValueError("Zip code must contain only numbers.")
+
+            o = Order(
+                customer_ID,
+                name, surname,mail,phonenumber,
+                order_ID,
+                city,
+                country,
+                zipcode
+            )
+
+            Order_list.append(o)
+
+
+            order_data = [x.to_dict() for x in Order_list]
+
+            with open("Order_data.json", "w") as file:
+                json.dump(order_data, file, indent=4)
+
+            print("Order added successfully.\n")
+            break
+
+        except ValueError as e:
+            print(f"Error: {e}\n")

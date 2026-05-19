@@ -1,0 +1,30 @@
+[
+    {
+        "Customer_ID": "1001",
+        "Order_ID": "5001",
+        "City": "Athens",
+        "Country": "Greece",
+        "Zipcode": "10552"
+    },
+    {
+        "Customer_ID": "1002",
+        "Order_ID": "5002",
+        "City": "Thessaloniki",
+        "Country": "Greece",
+        "Zipcode": "54636"
+    },
+    {
+        "Customer_ID": "1003",
+        "Order_ID": "5003",
+        "City": "Nicosia",
+        "Country": "Cyprus",
+        "Zipcode": "1010"
+    },
+    {
+        "Customer_ID": "1004",
+        "Order_ID": "5004",
+        "City": "Thessaloniki",
+        "Country": "Greece",
+        "Zipcode": "57001"
+    }
+]
