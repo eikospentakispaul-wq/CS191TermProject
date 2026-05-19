@@ -13,7 +13,8 @@ class Order(Customer):
             order_ID,
             city,
             country,
-            zipcode,Address
+            zipcode,
+            Address
     ):
 
         super().__init__(
@@ -53,10 +54,6 @@ class Order(Customer):
     def address(self):
         return self._Address
 
-    @address.setter
-    def address(self, value):
-        self._Address = value
-
     @order_ID.setter
     def order_ID(self, value):
         self._order_ID = value
@@ -72,6 +69,10 @@ class Order(Customer):
     @zipcode.setter
     def zipcode(self, value):
         self._zipcode = value
+
+    @address.setter
+    def address(self, value):
+        self._Address = value
 
 
 
@@ -90,5 +91,5 @@ class Order(Customer):
             "City": self.city,
             "Country": self.country,
             "Zipcode": self.zipcode,
-            "Address": self.address,
+            "Address": self.Address
         }
