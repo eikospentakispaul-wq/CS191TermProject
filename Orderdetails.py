@@ -56,6 +56,14 @@ class Orderdetails(Order):
     @price.setter
     def price(self, value):
             self._price = value
+    @property
+    def weight(self):
+        return self._weight
+
+    @weight.setter
+    def weight(self, value):
+        self._weight = value
+
 
 
 
