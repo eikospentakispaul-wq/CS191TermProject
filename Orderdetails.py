@@ -1,32 +1,10 @@
 from Order import Order
 
 class Orderdetails(Order):
+    def __init__(self,customer_ID,name,surname,mail,phonenumber,order_ID,city,country,zipcode,
+                 product_name,quantity,price,weight):
 
-    def __init__(self,
-                 customer_ID,
-                 name,
-                 surname,
-                 mail,
-                 phonenumber,
-                 order_ID,
-                 city,
-                 country,
-                 zipcode,
-                 product_name,
-                 quantity,
-                 price,
-                 weight):
-        super().__init__(
-            customer_ID,
-            name,
-            surname,
-            mail,
-            phonenumber,
-            order_ID,
-            city,
-            country,
-            zipcode
-        )
+        super().__init__(customer_ID,name,surname,mail,phonenumber,order_ID,city,country,zipcode)
 
         self._product_name = product_name
         self._quantity = quantity
