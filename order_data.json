@@ -1,30 +1,17 @@
 [
     {
         "Customer_ID": "1001",
+        "Name": "Pavlos",
+        "Surname": "Eikospentakis",
+        "Mail": "eikpospentakispaul@gmail.com",
+        "Phone number": "6937100254",
         "Order_ID": "5001",
-        "City": "Athens",
-        "Country": "Greece",
-        "Zipcode": "10552"
-    },
-    {
-        "Customer_ID": "1002",
-        "Order_ID": "5002",
         "City": "Thessaloniki",
         "Country": "Greece",
-        "Zipcode": "54636"
-    },
-    {
-        "Customer_ID": "1003",
-        "Order_ID": "5003",
-        "City": "Nicosia",
-        "Country": "Cyprus",
-        "Zipcode": "1010"
-    },
-    {
-        "Customer_ID": "1004",
-        "Order_ID": "5004",
-        "City": "Thessaloniki",
-        "Country": "Greece",
-        "Zipcode": "57001"
+        "Zipcode": "57001",
+        "Product": "iphone",
+        "Quantity": "1",
+        "Price": "1",
+        "Weight": "1"
     }
 ]

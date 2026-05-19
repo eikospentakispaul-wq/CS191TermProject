@@ -1,19 +1,25 @@
 from Customer import Customer
-from Order import Order
+from Orderdetails import Orderdetails
 import json
 import os
+
 
 
 
 Customer_list = []
 
 if os.path.exists("Customer_data.json"):
+
     with open("Customer_data.json", "r") as file:
+
         try:
+
             existing_data = json.load(file)
 
             for item in existing_data:
+
                 Customer_list.append(
+
                     Customer(
                         item["Customer_ID"],
                         item["Name"],
@@ -22,124 +28,268 @@ if os.path.exists("Customer_data.json"):
                         item["Phone number"]
                     )
                 )
+
         except json.JSONDecodeError:
             pass
+
 
 
 
 Order_list = []
 
 if os.path.exists("Order_data.json"):
+
     with open("Order_data.json", "r") as file:
+
         try:
+
             existing_data = json.load(file)
 
             for item in existing_data:
+
                 Order_list.append(
-                    Order(
+
+                    Orderdetails(
+
                         item["Customer_ID"],
-                        "", "", "", "",
+                        item["Name"],
+                        item["Surname"],
+                        item["Mail"],
+                        item["Phone number"],
+
                         item["Order_ID"],
                         item["City"],
                         item["Country"],
-                        item["Zipcode"]
+                        item["Zipcode"],
+
+                        item["Product"],
+                        item["Quantity"],
+                        item["Price"],
+                        item["Weight"]
                     )
                 )
+
         except json.JSONDecodeError:
             pass
 
 
-print("------COURIER DATABASE------\n")
+print("------ COURIER DATABASE ------\n")
 
-Decision = int(input("How many customers would you like to save data for? : "))
+
+Decision = int(
+    input("How many customers would you like to save data for? : ")
+)
+
+
 
 
 for i in range(Decision):
 
     while True:
+
         try:
+
             customer_ID = input("Enter customer ID : ").strip()
+
             if not customer_ID.isdigit():
-                raise ValueError("Customer ID must contain only numbers.")
+                raise ValueError(
+                    "Customer ID must contain only numbers."
+                )
 
             name = input("Name : ").strip()
+
             if not name.isalpha():
-                raise ValueError("Name must contain only letters.")
+                raise ValueError(
+                    "Name must contain only letters."
+                )
 
             surname = input("Surname : ").strip()
+
             if not surname.isalpha():
-                raise ValueError("Surname must contain only letters.")
+                raise ValueError(
+                    "Surname must contain only letters."
+                )
 
             mail = input("Mail : ").strip()
+
             if "@" not in mail or "." not in mail:
-                raise ValueError("Invalid email format.")
+                raise ValueError(
+                    "Invalid email format."
+                )
 
             phonenumber = input("Phone number : ").strip()
-            if not phonenumber.isdigit():
-                raise ValueError("Phone number must contain only digits.")
 
-            c = Customer(customer_ID, name, surname, mail, phonenumber)
+            if not phonenumber.isdigit():
+                raise ValueError(
+                    "Phone number must contain only digits."
+                )
+
+
+            c = Customer(
+                customer_ID,
+                name,
+                surname,
+                mail,
+                phonenumber
+            )
+
 
             Customer_list.append(c)
 
 
-            customer_data = [x.to_dict() for x in Customer_list]
+            customer_data = [
+                x.to_dict() for x in Customer_list
+            ]
 
             with open("Customer_data.json", "w") as file:
-                json.dump(customer_data, file, indent=4)
 
-            print("Customer added successfully.\n")
+                json.dump(
+                    customer_data,
+                    file,
+                    indent=4
+                )
+
+            print("\nCustomer added successfully.\n")
+
             break
 
         except ValueError as e:
-            print(f"Error: {e}\n")
+
+            print(f"\nError: {e}\n")
 
 
 print()
 
 
 
+
 for i in range(Decision):
 
     while True:
+
         try:
 
+            customer_ID = input(
+                "Enter customer ID : "
+            ).strip()
 
-            order_ID = input("Order ID : ").strip()
+            if not customer_ID.isdigit():
+                raise ValueError(
+                    "Customer ID must contain only numbers."
+                )
+
+            order_ID = input(
+                "Enter order ID : "
+            ).strip()
+
             if not order_ID.isdigit():
-                raise ValueError("Order ID must contain only numbers.")
+                raise ValueError(
+                    "Order ID must contain only numbers."
+                )
 
-            country = input("Country : ").strip()
+            country = input(
+                "Country : "
+            ).strip()
+
             if not country.isalpha():
-                raise ValueError("Country must contain only letters.")
+                raise ValueError(
+                    "Country must contain only letters."
+                )
 
-            city = input("City : ").strip()
+            city = input(
+                "City : "
+            ).strip()
+
             if not city.isalpha():
-                raise ValueError("City must contain only letters.")
+                raise ValueError(
+                    "City must contain only letters."
+                )
 
-            zipcode = input("Zip code : ").strip()
+            zipcode = input(
+                "Zip code : "
+            ).strip()
+
             if not zipcode.isdigit():
-                raise ValueError("Zip code must contain only numbers.")
+                raise ValueError(
+                    "Zip code must contain only numbers."
+                )
 
-            o = Order(
+            product_name = input(
+                "Product name : "
+            ).strip()
+
+            if not product_name.isalpha():
+                raise ValueError(
+                    "Product name must contain only letters."
+                )
+
+            quantity = input(
+                "Quantity : "
+            ).strip()
+
+            if not quantity.isdigit():
+                raise ValueError(
+                    "Quantity must contain only numbers."
+                )
+
+            price = input(
+                "Price : "
+            ).strip()
+
+            if not price.isdigit():
+                raise ValueError(
+                    "Price must contain only numbers."
+                )
+
+            weight = input(
+                "Weight : "
+            ).strip()
+
+            if not weight.isdigit():
+                raise ValueError(
+                    "Weight must contain only numbers."
+                )
+
+
+            od = Orderdetails(
+
                 customer_ID,
-                name, surname,mail,phonenumber,
+                name,
+                surname,
+                mail,
+                phonenumber,
+
                 order_ID,
                 city,
                 country,
-                zipcode
+                zipcode,
+
+                product_name,
+                quantity,
+                price,
+                weight
             )
 
-            Order_list.append(o)
+
+            Order_list.append(od)
 
 
-            order_data = [x.to_dict() for x in Order_list]
+            order_data = [
+                x.to_dict() for x in Order_list
+            ]
 
             with open("Order_data.json", "w") as file:
-                json.dump(order_data, file, indent=4)
 
-            print("Order added successfully.\n")
+                json.dump(
+                    order_data,
+                    file,
+                    indent=4
+                )
+
+            print("\nOrder added successfully.\n")
+
             break
 
         except ValueError as e:
-            print(f"Error: {e}\n")
+
+            print(f"\nError: {e}\n")

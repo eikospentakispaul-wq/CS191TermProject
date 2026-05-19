@@ -1,30 +1,9 @@
 [
     {
         "Customer_ID": "1001",
-        "Name": "John",
-        "Surname": "Smith",
-        "Mail": "]john.smith@gmail.com",
-        "Phone number": "6941234567"
-    },
-    {
-        "Customer_ID": "1002",
-        "Name": "Maria",
-        "Surname": "Papadopoulou",
-        "Mail": "maria.pap@gmail.com",
-        "Phone number": "6978899001"
-    },
-    {
-        "Customer_ID": "1003",
-        "Name": "Nikos",
-        "Surname": "Georgiou",
-        "Mail": "nikos.geo@yahoo.com",
-        "Phone number": "6912345678"
-    },
-    {
-        "Customer_ID": "1004",
         "Name": "Pavlos",
         "Surname": "Eikospentakis",
-        "Mail": "eikospentakispaul@gmail.com",
+        "Mail": "eikpospentakispaul@gmail.com",
         "Phone number": "6937100254"
     }
 ]

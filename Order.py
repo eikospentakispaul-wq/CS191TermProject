@@ -1,16 +1,36 @@
 from Customer import Customer
 
+
 class Order(Customer):
 
-    def __init__(self, customer_ID, name, surname, mail,
-                 phonenumber, order_ID, city, country, zipcode):
+    def __init__(
+            self,
+            customer_ID,
+            name,
+            surname,
+            mail,
+            phonenumber,
+            order_ID,
+            city,
+            country,
+            zipcode
+    ):
 
-        super().__init__(customer_ID, name, surname, mail, phonenumber)
+        super().__init__(
+            customer_ID,
+            name,
+            surname,
+            mail,
+            phonenumber
+        )
 
         self._order_ID = order_ID
         self._city = city
         self._country = country
         self._zipcode = zipcode
+
+
+
 
     @property
     def order_ID(self):
@@ -28,27 +48,40 @@ class Order(Customer):
     def zipcode(self):
         return self._zipcode
 
+
+
+
     @order_ID.setter
-    def order_ID(self, order_ID):
-        self._order_ID = order_ID
+    def order_ID(self, value):
+        self._order_ID = value
 
     @city.setter
-    def city(self, city):
-        self._city = city
+    def city(self, value):
+        self._city = value
 
     @country.setter
-    def country(self, country):
-        self._country = country
+    def country(self, value):
+        self._country = value
 
     @zipcode.setter
-    def zipcode(self, zipcode):
-        self._zipcode = zipcode
+    def zipcode(self, value):
+        self._zipcode = value
+
+
+
 
     def to_dict(self):
+
         return {
-            "Customer_ID" : self._customer_ID,
-            "Order_ID": self._order_ID,
-            "City": self._city,
-            "Country": self._country,
-            "Zipcode": self._zipcode
+
+            "Customer_ID": self.customer_ID,
+            "Name": self.name,
+            "Surname": self.surname,
+            "Mail": self.mail,
+            "Phone number": self.phonenumber,
+
+            "Order_ID": self.order_ID,
+            "City": self.city,
+            "Country": self.country,
+            "Zipcode": self.zipcode
         }
