@@ -3,27 +3,10 @@ from Customer import Customer
 
 class Order(Customer):
 
-    def __init__(
-            self,
-            customer_ID,
-            name,
-            surname,
-            mail,
-            phonenumber,
-            order_ID,
-            city,
-            country,
-            zipcode,
-            Address
-    ):
+    def __init__(self,customer_ID,name,surname,mail,phonenumber,order_ID,city,country,zipcode,
+                 Address):
 
-        super().__init__(
-            customer_ID,
-            name,
-            surname,
-            mail,
-            phonenumber
-        )
+        super().__init__(customer_ID,name,surname,mail,phonenumber)
 
         self._order_ID = order_ID
         self._city = city

@@ -126,13 +126,7 @@ for i in range(Decision):
                 )
 
 
-            c = Customer(
-                customer_ID,
-                name,
-                surname,
-                mail,
-                phonenumber
-            )
+            c = Customer(customer_ID,name,surname,mail,phonenumber)
 
 
             Customer_list.append(c)
@@ -261,25 +255,9 @@ for i in range(Decision):
                 )
 
 
-            od = Orderdetails(
+            od = Orderdetails(customer_ID,name,surname,mail,phonenumber,order_ID,city,country,zipcode,address,product_name,
+                quantity,price,weight)
 
-                customer_ID,
-                name,
-                surname,
-                mail,
-                phonenumber,
-
-                order_ID,
-                city,
-                country,
-                zipcode,
-                address,
-
-                product_name,
-                quantity,
-                price,
-                weight
-            )
 
 
             Order_list.append(od)
