@@ -2,7 +2,7 @@ from Customer import Customer
 from Orderdetails import Orderdetails
 import json
 import os
-#
+
 
 
 
@@ -61,6 +61,7 @@ if os.path.exists("Order_data.json"):
                         item["City"],
                         item["Country"],
                         item["Zipcode"],
+                        item["Address"],
 
                         item["Product"],
                         item["Quantity"],
@@ -214,6 +215,15 @@ for i in range(Decision):
                     "Zip code must contain only numbers."
                 )
 
+            address = input(
+                "Address : "
+            ).strip()
+
+            if not address.isdigit():
+                raise ValueError(
+                    "Address must contain only numbers."
+                )
+
             product_name = input(
                 "Product name : "
             ).strip()
@@ -263,6 +273,7 @@ for i in range(Decision):
                 city,
                 country,
                 zipcode,
+                address,
 
                 product_name,
                 quantity,

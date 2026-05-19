@@ -1,5 +1,5 @@
 from Customer import Customer
-#
+
 
 class Order(Customer):
 
@@ -13,7 +13,7 @@ class Order(Customer):
             order_ID,
             city,
             country,
-            zipcode
+            zipcode,Address
     ):
 
         super().__init__(
@@ -28,6 +28,7 @@ class Order(Customer):
         self._city = city
         self._country = country
         self._zipcode = zipcode
+        self._Address = Address
 
 
 
@@ -48,8 +49,13 @@ class Order(Customer):
     def zipcode(self):
         return self._zipcode
 
+    @property
+    def address(self):
+        return self._Address
 
-
+    @address.setter
+    def address(self, value):
+        self._Address = value
 
     @order_ID.setter
     def order_ID(self, value):
@@ -83,5 +89,6 @@ class Order(Customer):
             "Order_ID": self.order_ID,
             "City": self.city,
             "Country": self.country,
-            "Zipcode": self.zipcode
+            "Zipcode": self.zipcode,
+            "Address": self.address,
         }

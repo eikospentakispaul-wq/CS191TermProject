@@ -1,5 +1,5 @@
 from Order import Order
-#
+
 
 class Orderdetails(Order):
 
@@ -14,6 +14,7 @@ class Orderdetails(Order):
             city,
             country,
             zipcode,
+            address,
             product_name,
             quantity,
             price,
@@ -29,7 +30,8 @@ class Orderdetails(Order):
             order_ID,
             city,
             country,
-            zipcode
+            zipcode,
+            address
         )
 
         self._product_name = product_name
@@ -92,6 +94,7 @@ class Orderdetails(Order):
             "City": self.city,
             "Country": self.country,
             "Zipcode": self.zipcode,
+            "Address": self.address,
 
             "Product": self.product_name,
             "Quantity": self.quantity,
