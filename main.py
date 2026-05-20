@@ -3,7 +3,17 @@ from Orderdetails import Orderdetails
 import json
 import os
 
-
+product = {
+    "MacBook Air M2" : "1000$",
+    "MackBook Air M1" : "900$",
+    "MackBook Air M3" : "1200$",
+    "MackBook Air M4" : "1400$",
+    "MackBook Pro" : "2000$",
+    "iPad" : "800$",
+    "iPhone 15" : "1000$",
+    "iPhone 16" : "1200$",
+    "iPhone 17" : "1600$",
+ }
 
 
 Customer_list = []
