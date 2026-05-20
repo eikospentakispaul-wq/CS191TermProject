@@ -18,11 +18,11 @@ Apple_products = {
     "magic keyboard 2": 150, "magic trackpad 1": 100, "magic trackpad 2": 180, "pro display xdr": 6000, "studio display": 1800, "beats solo 3": 250, "beats studio 3": 350, "beats fit pro": 300,
     "beats studio pro": 450, "ipod touch 6": 250, "ipod touch 7": 350, "ipod nano 7": 200, "ipod shuffle 4": 120
 }
-products_list = list(Apple_products.items())
-sorted_products = sorted(Apple_products.items(), key=lambda x: x[1])
+#products_list = list(Apple_products.items())
+#sorted_products = sorted(Apple_products.items(), key=lambda x: x[1])
 
-for product, price in sorted_products:
-    print(f"{product}: ${price}")
+#for product, price in sorted_products:
+    #print(f"{product}: ${price}")
 
 
 Customer_list = []
@@ -174,10 +174,6 @@ for i in range(Decision):
 
 print()
 
-products=[]
-products.append(Apple_products)
-for i in products:
-    print(i)
 
 
 
