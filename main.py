@@ -89,7 +89,7 @@ if os.path.exists("Order_data.json"):
             pass
 
 
-print("------ COURIER DATABASE ------\n")
+print("------ E-SHOP DATABASE ------\n")
 
 
 Decision = int(
@@ -175,6 +175,10 @@ products.append(product)
 for i in products:
     print(i)
 
+
+print()
+print("------ PRODUCTS ------\n")
+print()
 
 for i in range(Decision):
 
