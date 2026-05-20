@@ -246,7 +246,7 @@ for i in range(Decision):
                 )
 
             price = 0
-            product_name = ""
+            product_name = "     "
 
             for i in range(quantity):
 
@@ -262,8 +262,7 @@ for i in range(Decision):
 
                 price += product[product_name]
 
-            # FIX:
-            # if quantity == 1 your old code skipped product input completely
+
 
             if quantity == 1:
 
