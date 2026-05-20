@@ -76,7 +76,7 @@ if os.path.exists("Order_data.json"):
                         item["Product"],
                         item["Quantity"],
                         item["Price"],
-                        item["Weight"]
+
                     )
                 )
 
@@ -255,18 +255,11 @@ for i in range(Decision):
                     "Price must contain only numbers."
                 )
 
-            weight = input(
-                "Weight : "
-            ).strip()
 
-            if not weight.isdigit():
-                raise ValueError(
-                    "Weight must contain only numbers."
-                )
 
 
             od = Orderdetails(customer_ID,name,surname,mail,phonenumber,order_ID,city,country,zipcode,address,product_name,
-                quantity,price,weight)
+                quantity,price)
 
 
 

@@ -12,7 +12,7 @@ class Orderdetails(Order):
         self._product_name = product_name
         self._quantity = quantity
         self._price = price
-        self._weight = weight
+
 
 
 
@@ -29,9 +29,7 @@ class Orderdetails(Order):
     def price(self):
         return self._price
 
-    @property
-    def weight(self):
-        return self._weight
+
 
 
 
@@ -48,9 +46,7 @@ class Orderdetails(Order):
     def price(self, value):
         self._price = value
 
-    @weight.setter
-    def weight(self, value):
-        self._weight = value
+
 
 
 
@@ -74,5 +70,5 @@ class Orderdetails(Order):
             "Product": self.product_name,
             "Quantity": self.quantity,
             "Price": self.price,
-            "Weight": self.weight
+
         }
