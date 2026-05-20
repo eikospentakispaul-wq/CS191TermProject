@@ -4,16 +4,21 @@ import json
 import os
 
 product = {
-    "MacBook Air M2" : "1000$",
     "MackBook Air M1" : "900$",
+    "MacBook Air M2" : "1000$",
     "MackBook Air M3" : "1200$",
     "MackBook Air M4" : "1400$",
     "MackBook Pro" : "2000$",
     "iPad" : "800$",
+    "iPad Pro" : "1000$",
     "iPhone 15" : "1000$",
+    "iPhone 15 Pro" : "1200$",
     "iPhone 16" : "1200$",
+    "iPhone 16 Pro" : "1400$",
     "iPhone 17" : "1600$",
+    "iPhone 17 Pro" : "1200$",
  }
+
 
 
 Customer_list = []
