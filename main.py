@@ -237,7 +237,40 @@ for i in range(Decision):
                 "Product name : "
             ).strip().casefold()
 
-            if product_name == "MackBook Air M1":
+            if product_name == "mackBook air m1":
+                pass
+
+            if product_name == "mackBook air m2":
+                pass
+
+            if product_name == "mackBook air m3":
+                pass
+
+            if product_name == "mackBook air m4":
+                pass
+
+            if product_name == "ipad":
+                pass
+
+            if product_name == "ipad pro":
+                pass
+
+            if product_name == "iphone 15":
+                pass
+
+            if product_name == "iphone 15 pro":
+                pass
+
+            if product_name == "iphone 16":
+                pass
+
+            if product_name == "iphone 16 pro":
+                pass
+
+            if product_name == "iphone 17":
+                pass
+
+            if product_name == "iphone 17 pro":
                 pass
 
             quantity = input(
