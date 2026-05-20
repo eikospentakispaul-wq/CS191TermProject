@@ -273,14 +273,11 @@ for i in range(Decision):
             if product_name == "iphone 17 pro":
                 pass
 
-            quantity = input(
+            quantity = int(input(
                 "Quantity : "
-            ).strip()
+            ).strip())
 
-            if not quantity.isdigit():
-                raise ValueError(
-                    "Quantity must contain only numbers."
-                )
+
 
             price=product[product_name]*quantity
 
