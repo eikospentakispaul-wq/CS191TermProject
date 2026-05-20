@@ -20,6 +20,7 @@ product = {
  }
 
 
+
 Customer_list = []
 
 if os.path.exists("Customer_data.json"):
