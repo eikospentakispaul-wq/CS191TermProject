@@ -182,14 +182,7 @@ for i in range(Decision):
 
         try:
 
-            customer_ID = input(
-                "Enter customer ID : "
-            ).strip()
 
-            if not customer_ID.isdigit():
-                raise ValueError(
-                    "Customer ID must contain only numbers."
-                )
 
             order_ID = input(
                 "Enter order ID : "

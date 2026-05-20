@@ -67,6 +67,7 @@ class Orderdetails(Order):
             "Zipcode": self.zipcode,
             "Address": self.address,
 
+
             "Product": self.product_name,
             "Quantity": self.quantity,
             "Price": self.price,
