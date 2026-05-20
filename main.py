@@ -246,7 +246,7 @@ for i in range(Decision):
                 )
 
             price = 0
-            product_name = "     "
+            product_name = " "
 
             for i in range(quantity):
 
