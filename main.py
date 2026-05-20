@@ -3,7 +3,7 @@ from Orderdetails import Orderdetails
 import json
 import os
 
-apple_products = {
+Apple_products = {
     "iphone 6": 300, "iphone 6 plus": 350, "iphone 6s": 400, "iphone 6s plus": 450, "iphone 7": 500, "iphone 7 plus": 550, "iphone 8": 600, "iphone 8 plus": 650,
     "iphone x": 700, "iphone xr": 750, "iphone xs": 800, "iphone xs max": 850, "iphone 11": 900, "iphone 11 pro": 1000, "iphone 11 pro max": 1100, "iphone 12 mini": 850,
     "iphone 12": 950, "iphone 12 pro": 1150, "iphone 12 pro max": 1300, "iphone 13 mini": 900, "iphone 13": 1000, "iphone 13 pro": 1200, "iphone 13 pro max": 1400, "iphone 14": 1100,
