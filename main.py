@@ -237,7 +237,7 @@ for i in range(Decision):
                 "Product name : "
             ).strip()
 
-            if not product_name.isalpha():
+            if not product_name:
                 raise ValueError(
                     "Product name must contain only letters."
                 )
