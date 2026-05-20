@@ -4,20 +4,20 @@ import json
 import os
 
 product = {
-    "mackbook air m1": "900$",
-    "macbook air m2": "1000$",
-    "mackbook air m3": "1200$",
-    "mackbook air m4": "1400$",
-    "mackbook pro": "2000$",
-    "ipad": "800$",
-    "ipad pro": "1000$",
-    "iphone 15": "1000$",
-    "iphone 15 pro": "1200$",
-    "iphone 16": "1200$",
-    "iphone 16 pro": "1400$",
-    "iphone 17": "1600$",
-    "iphone 17 pro": "1200$",
-}
+    "MackBook Air M1" : "900$",
+    "MacBook Air M2" : "1000$",
+    "MackBook Air M3" : "1200$",
+    "MackBook Air M4" : "1400$",
+    "MackBook Pro" : "2000$",
+    "iPad" : "800$",
+    "iPad Pro" : "1000$",
+    "iPhone 15" : "1000$",
+    "iPhone 15 Pro" : "1200$",
+    "iPhone 16" : "1200$",
+    "iPhone 16 Pro" : "1400$",
+    "iPhone 17" : "1600$",
+    "iPhone 17 Pro" : "1200$",
+ }
 
 
 
@@ -235,11 +235,12 @@ for i in range(Decision):
 
             product_name = input(
                 "Product name : "
-            ).strip().casefold()
+            ).strip()
 
-            if product_name == "MackBook Air M1":
-                pass
-
+            if not product_name.isalpha():
+                raise ValueError(
+                    "Product name must contain only letters."
+                )
 
             quantity = input(
                 "Quantity : "
@@ -250,10 +251,14 @@ for i in range(Decision):
                     "Quantity must contain only numbers."
                 )
 
+            price = input(
+                "Price : "
+            ).strip()
 
-
-            price = product[product_name]
-
+            if not price.isdigit():
+                raise ValueError(
+                    "Price must contain only numbers."
+                )
 
 
 
