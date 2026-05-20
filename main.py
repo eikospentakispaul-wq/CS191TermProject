@@ -170,7 +170,10 @@ for i in range(Decision):
 
 print()
 
-
+products=[]
+products.append(product)
+for i in products:
+    print(i)
 
 
 for i in range(Decision):
