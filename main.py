@@ -236,53 +236,45 @@ for i in range(Decision):
                     "Address must contain only letters."
                 )
 
-            product_name = input(
-                "Product name : "
-            ).strip().casefold()
-
-            if product_name == "mackBook air m1":
-                pass
-
-            if product_name == "mackBook air m2":
-                pass
-
-            if product_name == "mackBook air m3":
-                pass
-
-            if product_name == "mackBook air m4":
-                pass
-
-            if product_name == "ipad":
-                pass
-
-            if product_name == "ipad pro":
-                pass
-
-            if product_name == "iphone 15":
-                pass
-
-            if product_name == "iphone 15 pro":
-                pass
-
-            if product_name == "iphone 16":
-                pass
-
-            if product_name == "iphone 16 pro":
-                pass
-
-            if product_name == "iphone 17":
-                pass
-
-            if product_name == "iphone 17 pro":
-                pass
-
             quantity = int(input(
                 "Quantity : "
             ).strip())
 
+            if quantity <= 0:
+                raise ValueError(
+                    "Quantity must be greater than 0."
+                )
+
+            price = 0
+            product_name = ""
+
+            for i in range(quantity):
+
+                product_name = input(
+                    "Product name : "
+                ).strip().casefold()
+
+                if product_name not in product:
+                    raise ValueError(
+                        "Product does not exist."
+                    )
 
 
-            price=product[product_name]*quantity
+                price += product[product_name]
+
+            # FIX:
+            # if quantity == 1 your old code skipped product input completely
+
+            if quantity == 1:
+
+                product_name = input(
+                    "Product name : "
+                ).strip().casefold()
+
+                if product_name not in product:
+                    raise ValueError("Product does not exist.")
+
+                price = product[product_name]
 
 
 
