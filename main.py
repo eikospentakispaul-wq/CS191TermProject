@@ -257,16 +257,7 @@ for i in range(Decision):
 
 
 
-            if quantity == 1:
 
-                product_name = input(
-                    "Product name : "
-                ).strip().casefold()
-
-                if product_name not in product:
-                    raise ValueError("Product does not exist.")
-
-                price = product[product_name]
 
 
 
