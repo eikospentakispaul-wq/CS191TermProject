@@ -4,7 +4,7 @@ from Order import Order
 class Orderdetails(Order):
 
     def __init__(self,customer_ID,name,surname,mail,phonenumber,order_ID,city,country,zipcode,address,
-            product_name,quantity,price,weight):
+            product_name,quantity,price):
 
         super().__init__(customer_ID,name,surname,mail,phonenumber,order_ID,city,country,zipcode,
                          address)
