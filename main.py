@@ -18,12 +18,10 @@ Apple_products = {
     "magic keyboard 2": 150, "magic trackpad 1": 100, "magic trackpad 2": 180, "pro display xdr": 6000, "studio display": 1800, "beats solo 3": 250, "beats studio 3": 350, "beats fit pro": 300,
     "beats studio pro": 450, "ipod touch 6": 250, "ipod touch 7": 350, "ipod nano 7": 200, "ipod shuffle 4": 120
 }
-#products_list = list(Apple_products.items())
-#sorted_products = sorted(Apple_products.items(), key=lambda x: x[1])
 
-#for product, price in sorted_products:
-    #print(f"{product}: ${price}")
 
+
+# ---------------- LOAD CUSTOMERS ---------------- #
 
 Customer_list = []
 
@@ -38,7 +36,6 @@ if os.path.exists("Customer_data.json"):
             for item in existing_data:
 
                 Customer_list.append(
-
                     Customer(
                         item["Customer_ID"],
                         item["Name"],
@@ -52,7 +49,7 @@ if os.path.exists("Customer_data.json"):
             pass
 
 
-#
+# ---------------- LOAD ORDERS ---------------- #
 
 Order_list = []
 
@@ -67,25 +64,20 @@ if os.path.exists("Order_data.json"):
             for item in existing_data:
 
                 Order_list.append(
-
                     Orderdetails(
-
                         item["Customer_ID"],
                         item["Name"],
                         item["Surname"],
                         item["Mail"],
                         item["Phone number"],
-
                         item["Order_ID"],
                         item["City"],
                         item["Country"],
                         item["Zipcode"],
                         item["Address"],
-
                         item["Product"],
                         item["Quantity"],
-                        item["Price"],
-
+                        item["Price"]
                     )
                 )
 
@@ -93,202 +85,273 @@ if os.path.exists("Order_data.json"):
             pass
 
 
-print("------ E-SHOP DATABASE ------\n")
+# ---------------- MAIN PROGRAM ---------------- #
 
+while True:
 
-Decision = int(
-    input("How many customers would you like to save data for? : ")
-)
+    print("\n------ E-SHOP CUSTOMER AND ORDER DATABASE ------\n")
+    print("Choice 1 - Add Customer in database")
+    print("Choice 2 - Add Order in database")
+    print("Choice 3 - Exit the database")
+    print()
 
+    try:
+        choice = int(input("Enter your choice : "))
 
-###
+    except ValueError:
+        print("\nInvalid choice.\n")
+        continue
 
-for i in range(Decision):
+    # ---------------- ADD CUSTOMER ---------------- #
 
-    while True:
-
-        try:
-
-            customer_ID = input("Enter customer ID : ").strip()
-
-            if not customer_ID.isdigit():
-                raise ValueError(
-                    "Customer ID must contain only numbers."
-                )
-
-            name = input("Name : ").strip()
-
-            if not name.isalpha():
-                raise ValueError(
-                    "Name must contain only letters."
-                )
-
-            surname = input("Surname : ").strip()
-
-            if not surname.isalpha():
-                raise ValueError(
-                    "Surname must contain only letters."
-                )
-
-            mail = input("Mail : ").strip()
-
-            if "@" not in mail or "." not in mail:
-                raise ValueError(
-                    "Invalid email format."
-                )
-
-            phonenumber = input("Phone number : ").strip()
-
-            if not phonenumber.isdigit():
-                raise ValueError(
-                    "Phone number must contain only digits."
-                )
-
-
-            c = Customer(customer_ID,name,surname,mail,phonenumber)
-
-
-            Customer_list.append(c)
-
-
-            customer_data = [
-                x.to_dict() for x in Customer_list
-            ]
-
-            with open("Customer_data.json", "w") as file:
-
-                json.dump(
-                    customer_data,
-                    file,
-                    indent=4
-                )
-
-            print("\nCustomer added successfully.\n")
-
-            break
-
-        except ValueError as e:
-
-            print(f"\nError: {e}\n")
-
-
-print()
-
-
-
-
-
-
-for i in range(Decision):
-
-    while True:
+    if choice == 1:
 
         try:
+            Decision = int(
+                input("How many customers would you like to save data for? : ")
+            )
 
+        except ValueError:
+            print("\nPlease enter a valid number.\n")
+            continue
 
+        for i in range(Decision):
 
-            order_ID = input(
-                "Enter order ID : "
-            ).strip()
+            while True:
 
-            if not order_ID.isdigit():
-                raise ValueError(
-                    "Order ID must contain only numbers."
-                )
+                try:
 
-            country = input(
-                "Country : "
-            ).strip()
+                    customer_ID = input(
+                        "Enter customer ID : "
+                    ).strip()
 
-            if not country.isalpha():
-                raise ValueError(
-                    "Country must contain only letters."
-                )
+                    if not customer_ID.isdigit():
+                        raise ValueError(
+                            "Customer ID must contain only numbers."
+                        )
 
-            city = input(
-                "City : "
-            ).strip()
+                    name = input("Name : ").strip()
 
-            if not city.isalpha():
-                raise ValueError(
-                    "City must contain only letters."
-                )
+                    if not name.isalpha():
+                        raise ValueError(
+                            "Name must contain only letters."
+                        )
 
-            zipcode = input(
-                "Zip code : "
-            ).strip()
+                    surname = input("Surname : ").strip()
 
-            if not zipcode.isdigit():
-                raise ValueError(
-                    "Zip code must contain only numbers."
-                )
+                    if not surname.isalpha():
+                        raise ValueError(
+                            "Surname must contain only letters."
+                        )
 
-            address = input(
-                "Address : "
-            ).strip()
+                    mail = input("Mail : ").strip()
 
-            if not address.isalpha():
-                raise ValueError(
-                    "Address must contain only letters."
-                )
+                    if "@" not in mail or "." not in mail:
+                        raise ValueError(
+                            "Invalid email format."
+                        )
 
-            quantity = int(input(
-                "Quantity : "
-            ).strip())
+                    phonenumber = input(
+                        "Phone number : "
+                    ).strip()
 
-            if quantity <= 0:
-                raise ValueError(
-                    "Quantity must be greater than 0."
-                )
+                    if not phonenumber.isdigit():
+                        raise ValueError(
+                            "Phone number must contain only digits."
+                        )
 
-            price = 0
-            product_name = " "
-
-            for i in range(quantity):
-
-                product_name = input(
-                    "Product name : "
-                ).strip().casefold()
-
-                if product_name not in Apple_products:
-                    raise ValueError(
-                        "Product does not exist."
+                    c = Customer(
+                        customer_ID,
+                        name,
+                        surname,
+                        mail,
+                        phonenumber
                     )
 
+                    Customer_list.append(c)
 
-                price += Apple_products[product_name]
+                    customer_data = [
+                        x.to_dict() for x in Customer_list
+                    ]
 
+                    with open("Customer_data.json", "w") as file:
 
+                        json.dump(
+                            customer_data,
+                            file,
+                            indent=4
+                        )
 
+                    print("\nCustomer added successfully.\n")
 
+                    break
 
+                except ValueError as e:
 
+                    print(f"\nError: {e}\n")
 
+    # ---------------- ADD ORDER ---------------- #
 
-            od = Orderdetails(customer_ID,name,surname,mail,phonenumber,order_ID,city,country,zipcode,address,product_name,
-                quantity,price)
+    elif choice == 2:
 
+        if len(Customer_list) == 0:
+            print("\nNo customers found in database.\n")
+            continue
 
+        try:
 
-            Order_list.append(od)
+            Decision1 = int(
+                input("How many orders would you like to add ? : ")
+            )
 
+        except ValueError:
+            print("\nPlease enter a valid number.\n")
+            continue
 
-            order_data = [
-                x.to_dict() for x in Order_list
-            ]
+        for i in range(Decision1):
 
-            with open("Order_data.json", "w") as file:
+            while True:
 
-                json.dump(
-                    order_data,
-                    file,
-                    indent=4
-                )
+                try:
 
-            print("\nOrder added successfully.\n")
+                    customer_ID = input(
+                        "Enter customer ID : "
+                    ).strip()
 
-            break
+                    customer_found = None
 
-        except ValueError as e:
+                    for customer in Customer_list:
 
-            print(f"\nError: {e}\n")
+                        if customer.Customer_ID == customer_ID:
+                            customer_found = customer
+                            break
+
+                    if customer_found is None:
+                        raise ValueError(
+                            "Customer ID not found."
+                        )
+
+                    order_ID = input(
+                        "Enter order ID : "
+                    ).strip()
+
+                    if not order_ID.isdigit():
+                        raise ValueError(
+                            "Order ID must contain only numbers."
+                        )
+
+                    country = input(
+                        "Country : "
+                    ).strip()
+
+                    if not country.isalpha():
+                        raise ValueError(
+                            "Country must contain only letters."
+                        )
+
+                    city = input(
+                        "City : "
+                    ).strip()
+
+                    if not city.isalpha():
+                        raise ValueError(
+                            "City must contain only letters."
+                        )
+
+                    zipcode = input(
+                        "Zip code : "
+                    ).strip()
+
+                    if not zipcode.isdigit():
+                        raise ValueError(
+                            "Zip code must contain only numbers."
+                        )
+
+                    address = input(
+                        "Address : "
+                    ).strip()
+
+                    if len(address) < 5:
+                        raise ValueError(
+                            "Invalid address."
+                        )
+
+                    quantity = int(
+                        input("Quantity : ").strip()
+                    )
+
+                    if quantity <= 0:
+                        raise ValueError(
+                            "Quantity must be greater than 0."
+                        )
+
+                    products = []
+
+                    price = 0
+
+                    for j in range(quantity):
+
+                        product_name = input(
+                            "Product name : "
+                        ).strip().casefold()
+
+                        if product_name not in Apple_products:
+                            raise ValueError(
+                                "Product does not exist."
+                            )
+
+                        products.append(product_name)
+
+                        price += Apple_products[product_name]
+
+                    od = Orderdetails(
+
+                        customer_found.Customer_ID,
+                        customer_found.Name,
+                        customer_found.Surname,
+                        customer_found.Mail,
+                        customer_found.Phonenumber,
+
+                        order_ID,
+                        city,
+                        country,
+                        zipcode,
+                        address,
+
+                        ", ".join(products),
+                        quantity,
+                        price
+                    )
+
+                    Order_list.append(od)
+
+                    order_data = [
+                        x.to_dict() for x in Order_list
+                    ]
+
+                    with open("Order_data.json", "w") as file:
+
+                        json.dump(
+                            order_data,
+                            file,
+                            indent=4
+                        )
+
+                    print("\nOrder added successfully.\n")
+
+                    break
+
+                except ValueError as e:
+
+                    print(f"\nError: {e}\n")
+
+    # ---------------- EXIT ---------------- #
+
+    elif choice == 3:
+
+        print("\nYou have exited the database.\n")
+        break
+
+    else:
+
+        print("\nInvalid choice.\n")

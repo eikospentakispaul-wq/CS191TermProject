@@ -20,13 +20,15 @@ products_list = list(Apple_products.items())
 sorted_products = sorted(Apple_products.items(), key=lambda x: x[1])
 
 
-print("--------WAREHOUSE--------")
+print("--------E-SHOP WAREHOUSE--------")
 
 print("Choice 1 -products-")
 print("Choice 2 -products sorted from lowest to highest-")
 print("Choice 3 -Search products in warehouse-")
 print("Choice 4 -Exit-")
 print()
+
+
 while True:
     choice = int(input())
 
