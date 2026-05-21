@@ -51,3 +51,12 @@ class Customer:
             "Mail": self._mail,
             "Phone number": self._phonenumber
         }
+
+    def CustomerSerach(self,customer_ID):
+        if customer_ID == self._customer_ID:
+            return (f'Customer has been found\n'
+                    f'Customer ID: {self._customer_ID}\n'
+                    f'Name: {self._name}\n'
+                    f'Surname: {self._surname}\n')
+        else:
+            return f'The requested customer ID {customer_ID} does not exist in the database'
