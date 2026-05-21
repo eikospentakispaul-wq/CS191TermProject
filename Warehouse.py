@@ -26,6 +26,12 @@ Storage=str(input("Do you wish to see the list of products and their prices in t
 
 
 if Storage=="yes":
+    Sorted = str(input("Would you like to see the product list sorted?").strip().casefold())
+    if Sorted=="yes":
+        sorted_products = sorted(Apple_products.items(), key=lambda x: x[1])
+    for product, price in sorted_products:
+        print(f'{product}: {price}€')
+if Sorted=="no":
     for product,price in products_list:
        print(f'{product}: {price}')
 if Storage=="no":
