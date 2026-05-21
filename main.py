@@ -177,9 +177,7 @@ print()
 
 
 
-print()
-print("------ PRODUCTS ------\n")
-print()
+
 
 for i in range(Decision):
 
