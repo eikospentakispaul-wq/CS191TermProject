@@ -13,10 +13,6 @@ class Orderdetails(Order):
         self._quantity = quantity
         self._price = price
 
-
-
-
-
     @property
     def product_name(self):
         return self._product_name
@@ -28,11 +24,6 @@ class Orderdetails(Order):
     @property
     def price(self):
         return self._price
-
-
-
-
-
 
     @product_name.setter
     def product_name(self, value):
