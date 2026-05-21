@@ -1,5 +1,3 @@
-
-
 Apple_products = {
     "iphone 6": 300, "iphone 6 plus": 350, "iphone 6s": 400, "iphone 6s plus": 450, "iphone 7": 500, "iphone 7 plus": 550, "iphone 8": 600, "iphone 8 plus": 650,
     "iphone x": 700, "iphone xr": 750, "iphone xs": 800, "iphone xs max": 850, "iphone 11": 900, "iphone 11 pro": 1000, "iphone 11 pro max": 1100, "iphone 12 mini": 850,
@@ -22,24 +20,33 @@ products_list = list(Apple_products.items())
 sorted_products = sorted(Apple_products.items(), key=lambda x: x[1])
 
 
+print("--------WAREHOUSE--------")
 
-Storage=str(input("Do you wish to see the list of products and their prices in the warehouse? ").strip().casefold())
-
-
-if Storage=="yes":
-    for product,price in products_list:
-       print(f'{product}: {price}')
-if Storage=="no":
-    pass
-
+print("Choice 1 -products-")
+print("Choice 2 -products sorted from lowest to highest-")
+print("Choice 3 -Search products in warehouse-")
+print("Choice 4 -Exit-")
 print()
-Sorted = str(input("Would you like to see the product list sorted?").strip().casefold())
-print()
+while True:
+    choice = int(input())
 
-if Sorted=="yes":
+    if choice == 1:
+        for product,price in products_list:
+            print(f'{product}: {price}')
+    elif choice == 2:
+        for product,price in sorted_products:
+            print(f'{product}: {price}')
+    elif choice == 3:
+        search = input("Enter product name to search: ").lower()
+        found = False
 
-    for product, price in sorted_products:
-        print(f'{product}: {price}€')
+        for product, price in Apple_products.items():
+            if search in product:
+                print(f"{product}: {price}€")
+                found = True
 
-if Sorted=="no":
-    pass
+        if not found:
+            print("No matching products found.")
+    elif choice == 4:
+        print("You have exited the digital warehouse.")
+        break
