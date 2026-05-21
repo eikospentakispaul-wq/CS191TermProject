@@ -96,7 +96,7 @@ while True:
     print()
 
     try:
-        choice = int(input("Enter your choice : "))
+        choice = int(input())
 
     except ValueError:
         print("\nInvalid choice.\n")
