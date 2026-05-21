@@ -21,7 +21,7 @@ Apple_products = {
 
 
 
-# ---------------- LOAD CUSTOMERS ---------------- #
+
 
 Customer_list = []
 
@@ -49,7 +49,7 @@ if os.path.exists("Customer_data.json"):
             pass
 
 
-# ---------------- LOAD ORDERS ---------------- #
+
 
 Order_list = []
 
@@ -85,7 +85,7 @@ if os.path.exists("Order_data.json"):
             pass
 
 
-# ---------------- MAIN PROGRAM ---------------- #
+
 
 while True:
 
@@ -102,7 +102,7 @@ while True:
         print("\nInvalid choice.\n")
         continue
 
-    # ---------------- ADD CUSTOMER ---------------- #
+
 
     if choice == 1:
 
@@ -190,7 +190,7 @@ while True:
 
                     print(f"\nError: {e}\n")
 
-    # ---------------- ADD ORDER ---------------- #
+
 
     elif choice == 2:
 
@@ -345,7 +345,7 @@ while True:
 
                     print(f"\nError: {e}\n")
 
-    # ---------------- EXIT ---------------- #
+
 
     elif choice == 3:
 
