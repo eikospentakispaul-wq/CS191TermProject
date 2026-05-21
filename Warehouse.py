@@ -1,4 +1,4 @@
-from main import order_ID
+
 
 Apple_products = {
     "iphone 6": 300, "iphone 6 plus": 350, "iphone 6s": 400, "iphone 6s plus": 450, "iphone 7": 500, "iphone 7 plus": 550, "iphone 8": 600, "iphone 8 plus": 650,
@@ -21,20 +21,25 @@ Apple_products = {
 products_list = list(Apple_products.items())
 sorted_products = sorted(Apple_products.items(), key=lambda x: x[1])
 
-#for product, price in sorted_products:
-    #print(f"{product}: ${price}")
+
 
 Storage=str(input("Do you wish to see the list of products and their prices in the warehouse? ").strip().casefold())
 
 
 if Storage=="yes":
-    Sorted = str(input("Would you like to see the product list sorted?").strip().casefold())
-    if Sorted=="yes":
-        sorted_products = sorted(Apple_products.items(), key=lambda x: x[1])
-    for product, price in sorted_products:
-        print(f'{product}: {price}€')
-if Sorted=="no":
     for product,price in products_list:
        print(f'{product}: {price}')
 if Storage=="no":
+    pass
+
+print()
+Sorted = str(input("Would you like to see the product list sorted?").strip().casefold())
+print()
+
+if Sorted=="yes":
+
+    for product, price in sorted_products:
+        print(f'{product}: {price}€')
+
+if Sorted=="no":
     pass
