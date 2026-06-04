@@ -1,3 +1,5 @@
+import matplotlib.pyplot as plt
+
 Apple_products = {
     "iphone 6": 300, "iphone 6 plus": 350, "iphone 6s": 400, "iphone 6s plus": 450, "iphone 7": 500, "iphone 7 plus": 550, "iphone 8": 600, "iphone 8 plus": 650,
     "iphone x": 700, "iphone xr": 750, "iphone xs": 800, "iphone xs max": 850, "iphone 11": 900, "iphone 11 pro": 1000, "iphone 11 pro max": 1100, "iphone 12 mini": 850,
@@ -20,12 +22,36 @@ products_list = list(Apple_products.items())
 sorted_products = sorted(Apple_products.items(), key=lambda x: x[1])
 
 
+def show_price_chart():
+    # This function uses Matplotlib to display the 10 most expensive products.
+    most_expensive_products = sorted(
+        Apple_products.items(),
+        key=lambda product: product[1],
+        reverse=True
+    )[:10]
+
+    product_names = [product[0].title() for product in most_expensive_products]
+    product_prices = [product[1] for product in most_expensive_products]
+
+    plt.figure(figsize=(12, 6))
+    plt.bar(product_names, product_prices)
+    plt.title("Top 10 Most Expensive Apple Products")
+    plt.xlabel("Product")
+    plt.ylabel("Price (€)")
+    plt.xticks(rotation=45, ha="right")
+    plt.tight_layout()
+    plt.savefig("product_price_chart.png")
+    print("Chart saved as product_price_chart.png")
+    plt.show()
+
+
 print("--------E-SHOP WAREHOUSE--------")
 
 print("Choice 1 -products-")
 print("Choice 2 -products sorted from lowest to highest-")
 print("Choice 3 -Search products in warehouse-")
-print("Choice 4 -Exit-")
+print("Choice 4 -Show product price chart-")
+print("Choice 5 -Exit-")
 print()
 
 
@@ -50,5 +76,7 @@ while True:
         if not found:
             print("No matching products found.")
     elif choice == 4:
+        show_price_chart()
+    elif choice == 5:
         print("You have exited the digital warehouse.")
         break

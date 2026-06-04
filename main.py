@@ -2,6 +2,7 @@ from Customer import Customer
 from Orderdetails import Orderdetails
 import json
 import os
+import matplotlib.pyplot as plt
 
 Apple_products = {
     "iphone 6": 300, "iphone 6 plus": 350, "iphone 6s": 400, "iphone 6s plus": 450, "iphone 7": 500, "iphone 7 plus": 550, "iphone 8": 600, "iphone 8 plus": 650,
@@ -20,7 +21,28 @@ Apple_products = {
 }
 
 
+def show_price_chart():
+    # This function uses Matplotlib to create a simple bar chart.
+    # It shows the 10 most expensive products in the warehouse.
+    most_expensive_products = sorted(
+        Apple_products.items(),
+        key=lambda product: product[1],
+        reverse=True
+    )[:10]
 
+    product_names = [product[0].title() for product in most_expensive_products]
+    product_prices = [product[1] for product in most_expensive_products]
+
+    plt.figure(figsize=(12, 6))
+    plt.bar(product_names, product_prices)
+    plt.title("Top 10 Most Expensive Apple Products")
+    plt.xlabel("Product")
+    plt.ylabel("Price (€)")
+    plt.xticks(rotation=45, ha="right")
+    plt.tight_layout()
+    plt.savefig("product_price_chart.png")
+    print("Chart saved as product_price_chart.png")
+    plt.show()
 
 
 Customer_list = []
@@ -92,7 +114,8 @@ while True:
     print("\n------ E-SHOP CUSTOMER AND ORDER DATABASE ------\n")
     print("Choice 1 - Add Customer in database")
     print("Choice 2 - Add Order in database")
-    print("Choice 3 - Exit the database")
+    print("Choice 3 - Show product price chart")
+    print("Choice 4 - Exit the database")
     print()
 
     try:
@@ -222,7 +245,7 @@ while True:
 
                     for customer in Customer_list:
 
-                        if customer.Customer_ID == customer_ID:
+                        if customer.customer_ID == customer_ID:
                             customer_found = customer
                             break
 
@@ -306,11 +329,11 @@ while True:
 
                     od = Orderdetails(
 
-                        customer_found.Customer_ID,
-                        customer_found.Name,
-                        customer_found.Surname,
-                        customer_found.Mail,
-                        customer_found.Phonenumber,
+                        customer_found.customer_ID,
+                        customer_found.name,
+                        customer_found.surname,
+                        customer_found.mail,
+                        customer_found.phonenumber,
 
                         order_ID,
                         city,
@@ -348,6 +371,12 @@ while True:
 
 
     elif choice == 3:
+
+        show_price_chart()
+
+
+
+    elif choice == 4:
 
         print("\nYou have exited the database.\n")
         break
